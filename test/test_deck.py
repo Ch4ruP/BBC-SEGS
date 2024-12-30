@@ -22,6 +22,9 @@ class DeckTestCase(unittest.TestCase):
     def test_card_values_kings(self): # tests that there are four kings in the deck 
         number_of_kings = self.deck.cards.count("K")
         self.assertEqual(number_of_kings, 4)
+    def test_pop_func(self):
+        returned_card = self.deck.deal_cards()
+        self.assertIn(returned_card, ('A',2,3,4,5,6,7,8,9,10,'J','Q','K'))
 
 if __name__ == '__main__':
     unittest.main()
