@@ -18,16 +18,17 @@ class Gameplay:
             self.players[x].add_card(secondDealtCard)
         return
 
-# If a player chooses to 'hit' (recursive function)
+# If a player chooses to 'hit'
     def hit(self, player):
         # draw a card from the deck
         dealtCard = self.currDeck.deal_cards()
         # add the card to the player's hand
-        self.players[player].add_card(dealtCard)
+        player.add_card(dealtCard)
         # check if the player has busted (value > 21)
         # if busted, end the player's turn, and set bust to true
-        # else, ask the player if they want to 'hit' or 'stand'
-        return
+        if player.get_lowest_value() > 21:
+            player.bust = True
+            return
 
 # If a player chooses to stand
     def stand(self):
@@ -47,3 +48,4 @@ class Gameplay:
     def checkWinner(self):
         # check which player has the highest value without going bust
             #award that player the pot
+        return
