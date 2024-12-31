@@ -28,6 +28,18 @@ class HandTestCase(unittest.TestCase):
         self.assertEqual(self.hand.lowestValue,11)
         self.assertEqual(self.hand.bust,False)
     
+    def test_closestVal(self): # this tests that if a player has an ace, the best option will be used to calculate the closest value
+        self.hand.add_card(10)
+        self.hand.add_card('A')
+        closest_val = self.hand.get_closest_val()
+        self.assertEqual(closest_val,21)
+    
+    def test_closestVal_two_aces(self): # this tests that if a player has two aces, the best option will be used
+        self.hand.add_card(9)
+        self.hand.add_card('A')
+        self.hand.add_card('A')
+        closest_val = self.hand.get_closest_val()
+        self.assertEqual(closest_val,21)
 
 if __name__ == '__main__':
     unittest.main()

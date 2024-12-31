@@ -20,5 +20,21 @@ class Hand:
     #Return the lowest value of the hand
     def get_lowest_value(self):
         return self.lowestValue
-        
+
+    #Return the value closest to 21 without going bust
+    def get_closest_val(self):
+        #if none are an ace, then add all vals
+        if 'A' not in self.cards:
+            return self.lowestValue
+        #if one or more is an ace,
+        else:
+            val = self.lowestValue
+            # find the number of aces
+            # add 10 to the lowestvalue until it would be over 21 or you have reached the max number of aces
+            # e.g. if you have 2 aces and lowestval is 11 then you can make one of those aces worth 11 to take you to 21
+            aCount = self.cards.count('A')
+            for x in range(aCount):
+                if val + 10 <= 21:
+                    val+=10
+            return val
         

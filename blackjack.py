@@ -4,7 +4,7 @@ from src.gameplay import Gameplay
 
 def play():
     gameplay = Gameplay()
-    print('Hello, potential future BBC developer!')  # execution starts here! remove this print() and add your own code.
+    print('Hello, players!')
     gameplay.playGame(3)
 
 if __name__ == '__main__':

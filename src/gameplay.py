@@ -46,6 +46,15 @@ class Gameplay:
 
 # Check which player wins
     def checkWinner(self):
-        # check which player has the highest value without going bust
-            #award that player the pot
-        return
+        #for all players, 
+            # 1: check if bust
+            # 2: if not, compare to highest
+            # 3: if higher then set highest to new val and change winner to player name - what about if same?
+        #return winner
+        maxVal = 0
+        winner = ""
+        for x in range(len(players)):
+            if players[x].bust != True and players[x].get_closest_val > maxVal:
+                    maxVal = playerVal
+                    winner = 'Player {0}'.format(x)
+        return winner,maxVal
